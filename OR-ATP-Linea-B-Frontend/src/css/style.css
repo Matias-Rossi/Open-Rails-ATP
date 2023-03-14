@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+/* Universal */
+body {
+    display: flex;
+    justify-content: flex-start;
+    background-color: gray;
+    font-family: 'Open Sans';
+}
+
+.gradient_light {
+    background-size: 800px 100%;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+}

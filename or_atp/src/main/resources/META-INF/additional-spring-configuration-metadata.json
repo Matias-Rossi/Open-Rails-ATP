@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "or.server.port",
+  "type": "java.lang.String",
+  "description": "Port where Open Rails server is hosted"
+}]}
