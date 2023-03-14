@@ -1,0 +1,9 @@
+.base {
+    background-image: url(../assets/images/ATS_Generado_off.png);
+    width: 600px;
+    height: 339px;
+    background-size: 600px 339px;
+    position: relative;
+    /*width: 1200px;
+    height: 678px;*/
+}

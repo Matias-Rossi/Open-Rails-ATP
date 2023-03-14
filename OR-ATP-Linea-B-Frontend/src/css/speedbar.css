@@ -1,0 +1,23 @@
+.sb-container {
+    position: absolute;
+    width: 325px;
+    height: 12px;
+    background-color: #300404;
+}
+
+.sb-filler {
+    height: 100%;
+    /*width: `${completed}%`,*/
+    background-color: #F50312;
+    text-align: 'right';
+}
+
+#vCurr-SB {
+    left: 239px;
+    top: 149px;
+}
+
+#vAll-SB {
+    left: 239px;
+    top: 94px;
+}

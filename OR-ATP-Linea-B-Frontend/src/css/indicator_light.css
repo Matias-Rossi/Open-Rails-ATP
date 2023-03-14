@@ -1,0 +1,65 @@
+.ind-light {
+    position: absolute;
+    width: 55px;
+    height: 24px;
+
+    font-size: 8px;
+    border-radius: 4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    line-height: 11px;
+    font-family: 'Open Sans';
+}
+
+.il-green-off {
+    background: #023B1E;
+}
+
+
+.il-green-on {
+    background: #00FF03;
+}
+
+.il-yellow-off {
+    background: #6D4802;
+}
+
+.il-yellow-on {
+    background: #FDFA06;
+}
+
+.il-red-off {
+    background: #440002;
+}
+.il-red-on {
+    background: #F50312;
+}
+
+/* Light positions */
+
+#CL_LI {
+    left: 42px;
+    top: 34px;
+}
+
+#CMC_LI {
+    left: 42px;
+    top: 63px;
+}
+#TR_LI {
+    left: 101px;
+    top: 63px;
+}
+#FR_LI {
+    left: 161px;
+    top: 63px;
+}
+#PEN_LI {
+    left: 419px;
+    top: 59px;
+    font-size: 7px;
+}

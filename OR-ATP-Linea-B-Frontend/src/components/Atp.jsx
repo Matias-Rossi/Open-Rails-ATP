@@ -1,37 +1,40 @@
-import '../css/atp.css'
 import React from 'react'
+import base from '../css/base.css'
+import IndicatorLight from './IndicatorLight';
+import LcdDisplay from './LcdDisplay.jsx';
+import SpeedBar from './SpeedBar';
 
 function Atp() {
+  //TODO: Handle flashing lights
+  const vCurr = 44.6;
+  const vObj = 60.0;
+  const vAll = 60.0;
+
+  const cl_status = "off";
+  const cm_status = "on";
+  const tr_status = "on";
+  const fr_status = "off";
+  const pe_status = "off";
+  
   return (
-        <div id="atp">
-            <div id="atp_display">
-                {/* INDICACIONES */}
-                <div id="atp_indicaciones">
-                    <div id="CL" class="indicacion green_light gradient_light"><p>CL</p></div>
-                    <div id="CMC" class="indicacion green_light gradient_light"><p>CMC</p></div>
-                    <div id="TRACCION" class="indicacion yellow_light gradient_light"><p>TRACCIÓN</p></div>
-                    <div id="FRENO" class="indicacion yellow_light gradient_light"><p>FRENO</p></div>
-                </div>
-                {/* VELOCIDAD OBJETIVO */}
-                <div id="velocidad_objetivo">
-                    <div id="PENALIZACION" class="indicacion red_light gradient_light"><p>PENALIZACIÓN</p></div>
-                    <div id="vZiel_display" class="lcd">8<span>0.0</span></div>
-                </div>
-                {/* VELOCIDAD PERMITIDA */}
-                <div id="velocidad_permitida_bar">
-                    <div id="vSoll_display" class="speed_bar"><div class="speed_bar_cursor"></div></div> {/* TODO: Agregar ID */}
-                </div>
-                {/* VELOCIDAD (display) */}
-                <div id="velocidad_actual">
-                    <div id="vIst_display" class="lcd">8<span>0.0</span></div>
-                </div>
-                {/* VELOCIDAD (bar) */}
-                <div id="velocidad_actual_bar">
-                    <div id="vIst_bar" class="speed_bar"><div class="speed_bar_cursor"></div></div>  {/* TODO: Agregar ID */}
-                </div>
-            </div>
-            <div id="atp_lower"></div>
-    </div>
+    <div className='base'>
+      {/* Indicator Lights */}
+        <IndicatorLight text="CL"           status={cl_status} color='green' id="CL_LI" />
+        <IndicatorLight text="CMC"          status={cm_status} color='green' id="CMC_LI" />
+        <IndicatorLight text="TRACCIÓN"     status={tr_status} color='yellow' id="TR_LI" />
+        <IndicatorLight text="FRENO"        status={fr_status} color='yellow' id="FR_LI" />
+        <IndicatorLight text="PENALIZACIÓN" status={pe_status} color='red' id="PEN_LI"/>
+
+      {/* LCD Speed Displays */}
+      <LcdDisplay value={vCurr} status='on' id='vCurr-display'/>
+      <LcdDisplay value={vObj} status='on' id='vObj-display'/>
+
+      {/* LCD Speed Bars */}
+      <SpeedBar value={vCurr} status='on' id='vCurr-SB'/>
+      <SpeedBar value={vAll} status='on' id='vAll-SB'/>
+
+    </div>    
+    
   )
 }
 

@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './css/style.css'
+import base from './css/base.css'
+import st from './css/style.css?inline'
 import Atp from './components/atp'
 
 function App() {

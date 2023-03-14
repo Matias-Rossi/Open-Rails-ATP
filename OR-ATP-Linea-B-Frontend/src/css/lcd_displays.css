@@ -1,0 +1,63 @@
+
+/* GENERAL */
+
+.lcd-display {
+    position: absolute;
+    /*background: #300404;*/
+    border-radius: 2px;
+}
+
+.lcd-display p {
+    position: absolute;
+
+    font-family: 'DSEG7 Classic';
+    font-style: italic;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+
+    color: #F50312;
+    direction: rtl;
+}
+
+/* CURRENT SPEED */
+
+#vCurr-display {
+    top: 96px;
+    left: 41.6px;
+
+    width: 172px;
+    height: 65.39px;
+}
+
+#vCurr-display p {
+    width: 172px;
+    height: 65.39px;
+    left: 0px;
+    top: 0px;
+
+    font-size: 59px;
+    line-height: 64px;
+    letter-spacing: 0.1em;
+}
+
+/* OBJECTIVE SPEED */
+
+#vObj-display {
+    right: 37px;
+    top: 43.4px;
+
+    width: 88px;
+    height: 42px;
+}
+
+#vObj-display p {
+    left: 0;
+    top: 0;
+
+    width: 88px;
+    font-size: 35px;
+    line-height: 38px;
+}
