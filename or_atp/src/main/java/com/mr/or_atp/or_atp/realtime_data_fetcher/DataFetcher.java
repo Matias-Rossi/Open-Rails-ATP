@@ -2,17 +2,9 @@ package com.mr.or_atp.or_atp.realtime_data_fetcher;
 
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 import com.google.gson.Gson;
 import com.mr.or_atp.or_atp.models.sim_data.CabControls;
 import com.mr.or_atp.or_atp.models.sim_data.SimData;
@@ -23,7 +15,6 @@ import com.mr.or_atp.or_atp.models.sim_data.json_models.TrackMonitorRow;
 import com.mr.or_atp.or_atp.models.sim_data.json_models.TrainDisplayRow;
 
 import jakarta.annotation.PostConstruct;
-import jakarta.annotation.Resource;
 
 @Component
 public class DataFetcher {
@@ -49,7 +40,7 @@ public class DataFetcher {
     @PostConstruct
     public SimData fetchData() {
 
-        System.out.println(" ============== Fetching data ============== ");
+        //System.out.println(" ============== Fetching data ============== ");
 
         TrackMonitor trackMonitor = fetchTrackMonitorData();
         TrainDisplay trainDisplay = fetchTrainDisplayData();

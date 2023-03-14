@@ -15,6 +15,13 @@ public class ATP_Panel {
 
     private static ATP_Panel instance = null;
 
+    //TODO: LightStaus isn't used but calculated on frontend :/
+    public void setSpeeds(double current, double objective, double allowed) {
+        current_speed.setSpeed(current);
+        allowed_speed.setSpeed(allowed);
+        objective_speed.setSpeed(objective);
+    }
+
     public static ATP_Panel getInstance() {
         if (instance == null) {
             instance = new ATP_Panel();

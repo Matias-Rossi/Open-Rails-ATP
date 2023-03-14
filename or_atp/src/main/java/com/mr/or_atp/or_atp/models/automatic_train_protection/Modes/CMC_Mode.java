@@ -1,30 +1,25 @@
 package com.mr.or_atp.or_atp.models.automatic_train_protection.Modes;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 import com.mr.or_atp.or_atp.models.automatic_train_protection.ATP_Panel;
 import com.mr.or_atp.or_atp.models.automatic_train_protection.LightIndicatorStatus;
-import com.mr.or_atp.or_atp.models.automatic_train_protection.SpeedIndicatorStatus;
 import com.mr.or_atp.or_atp.models.sim_data.SimData;
-import com.mr.or_atp.or_atp.models.track_monitor.MonitorItem;
 import com.mr.or_atp.or_atp.models.track_monitor.MonitorSignal;
 import com.mr.or_atp.or_atp.models.track_monitor.MonitorSpeedLimit;
 
 import lombok.Getter;
 
 public class CMC_Mode implements ATP_ModeInterface {
-    @Getter private int allowedSpeed;
-    @Getter private int currentSpeed;
-    @Getter private int objectiveSpeed;
+    @Getter private double allowedSpeed;
+    @Getter private double currentSpeed;
+    @Getter private double objectiveSpeed;
     @Getter private int currentRouteSpeedLimit;
     private double distanceToObjective;
-    private ATP_Panel panelStatus;
+    @Getter private ATP_Panel panelStatus;
 
-    private int timeOverLimit;
+    private int timeOverLimit; //TODO: Pending implementation
+
+    private boolean initExecuted = false;
 
     @Override
     public void init() {
@@ -35,6 +30,7 @@ public class CMC_Mode implements ATP_ModeInterface {
         distanceToObjective = 0;
         timeOverLimit = 0;
         panelStatus = ATP_Panel.getInstance();
+        panelStatus.reset();
         panelStatus.setCmc_light(LightIndicatorStatus.ON);
     }
 
@@ -45,10 +41,21 @@ public class CMC_Mode implements ATP_ModeInterface {
 
     @Override
     public void run(SimData simData) {
-        currentSpeed = (int) Math.round(simData.getTrainDisplay().getSpeed());
+        if(!initExecuted) {
+            init();
+            initExecuted = true;
+        }
+
+        currentSpeed = simData.getTrainDisplay().getSpeed();
         currentRouteSpeedLimit = (int) Math.round(simData.getTrackMonitor().getCurrentSpeedLimit());
         objectiveSpeed = calculateObjectiveSpeed(simData);
         allowedSpeed = calculateAllowedSpeed();
+
+        //Update panel
+        panelStatus.setSpeeds(currentSpeed, objectiveSpeed, allowedSpeed);
+        panelStatus.setTraction_light(isTractionAllowed()? LightIndicatorStatus.ON : LightIndicatorStatus.OFF);
+        panelStatus.setBrake_light(simData.getTrainDisplay().isBrakeApplied()? LightIndicatorStatus.ON : LightIndicatorStatus.OFF);
+        panelStatus.setPenalty_light(isEmergencyBrakeForced()? LightIndicatorStatus.ON : LightIndicatorStatus.OFF);
     }
 
     @Override

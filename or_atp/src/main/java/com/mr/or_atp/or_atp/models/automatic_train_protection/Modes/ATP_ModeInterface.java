@@ -9,9 +9,9 @@ public interface ATP_ModeInterface {
     void run(SimData simData);
     boolean isTractionAllowed();
     boolean isEmergencyBrakeForced();
-    int getObjectiveSpeed();
-    int getAllowedSpeed();
-    int getCurrentSpeed();
+    double getObjectiveSpeed();
+    double getAllowedSpeed();
+    double getCurrentSpeed();
     ATP_Panel getPanelIndications();
 
 
