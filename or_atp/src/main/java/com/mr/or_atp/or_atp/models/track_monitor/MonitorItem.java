@@ -7,6 +7,10 @@ public abstract class MonitorItem {
         this.distanceToItem = distanceToItem; //meters
     }
 
+    public int getSpeedLimit() {
+        return 0;
+    }
+
     public Double getDistance() {
         return distanceToItem;
     }

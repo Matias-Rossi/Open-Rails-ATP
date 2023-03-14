@@ -47,7 +47,6 @@ public class DataFetcher {
     // }
 
     @PostConstruct
-    @Scheduled(fixedDelay = 1000)
     public SimData fetchData() {
 
         System.out.println(" ============== Fetching data ============== ");
@@ -62,9 +61,9 @@ public class DataFetcher {
         //     System.out.println("Signal: " + signal.getAspect() + " // Distance: " + signal.getDistance());
         // });
         
-        trackMonitor.getSpeedLimits().forEach(speedLimitPost -> {
-            System.out.println("SpeedLimitPost: " + speedLimitPost.getSpeedLimit() + " // Distance: " + speedLimitPost.getDistance());
-        });
+        //trackMonitor.getSpeedLimits().forEach(speedLimitPost -> {
+        //    System.out.println("SpeedLimitPost: " + speedLimitPost.getSpeedLimit() + " // Distance: " + speedLimitPost.getDistance());
+        //});
 
         return new SimData(trackMonitor, trainDisplay, cabControls);
     }

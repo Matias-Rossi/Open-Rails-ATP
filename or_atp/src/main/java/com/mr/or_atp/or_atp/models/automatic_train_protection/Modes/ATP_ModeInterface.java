@@ -4,13 +4,14 @@ import com.mr.or_atp.or_atp.models.automatic_train_protection.ATP_Panel;
 import com.mr.or_atp.or_atp.models.sim_data.SimData;
 
 public interface ATP_ModeInterface {
+    void init();
     ATP_OperationModes getMode();
-    void executeCalculations(SimData simData);
+    void run(SimData simData);
     boolean isTractionAllowed();
     boolean isEmergencyBrakeForced();
-    double getObjectiveSpeed();
-    double getAllowedSpeed();
-    double getCurrentSpeed();
+    int getObjectiveSpeed();
+    int getAllowedSpeed();
+    int getCurrentSpeed();
     ATP_Panel getPanelIndications();
 
 

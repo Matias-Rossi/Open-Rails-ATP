@@ -9,5 +9,33 @@ public class ATP_Panel {
     @Getter @Setter LightIndicatorStatus traction_light; //Yellow
     @Getter @Setter LightIndicatorStatus brake_light; //Yellow: On if BC > 0
     @Getter @Setter LightIndicatorStatus penalty_light; //Red: On if ATP is forcing the emergency brake
+    @Getter @Setter SpeedIndicatorStatus current_speed;
+    @Getter @Setter SpeedIndicatorStatus allowed_speed;
+    @Getter @Setter SpeedIndicatorStatus objective_speed;
+
+    private static ATP_Panel instance = null;
+
+    public static ATP_Panel getInstance() {
+        if (instance == null) {
+            instance = new ATP_Panel();
+        }
+        return instance;
+    }
+
+    public void reset() {
+        cl_light = LightIndicatorStatus.OFF;
+        cmc_light = LightIndicatorStatus.OFF;
+        traction_light = LightIndicatorStatus.OFF;
+        brake_light = LightIndicatorStatus.OFF;
+        penalty_light = LightIndicatorStatus.OFF;
+        current_speed = new SpeedIndicatorStatus();
+        allowed_speed = new SpeedIndicatorStatus();
+        objective_speed = new SpeedIndicatorStatus();
+    }
+
+    private ATP_Panel() {
+        reset();
+    }
 
 }
+

@@ -32,14 +32,14 @@ public class TrackMonitorRow {
     public Optional<Integer> getLimit() {
         if (this.hasLimit()) {
             try {
-                System.out.println("Parsing limit: >" + LimitCol + "<");
+                //System.out.println("Parsing limit: >" + LimitCol + "<");
                 String limitStr = "";
                 for (char c : LimitCol.toCharArray()) {
                     if (Character.isDigit(c)) {
                         limitStr += c;
                     }
                 }
-                System.out.println("Got " + Integer.valueOf(limitStr));
+                //System.out.println("Got " + Integer.valueOf(limitStr));
                 return Optional.of(Integer.valueOf(limitStr));
             } catch (Exception e) {}
         }
