@@ -48,7 +48,7 @@ public class TrackMonitor {
         return monitorSignals;
     }
 
-    public List<MonitorSpeedLimit> getSpeedLimitPosts() {
+    public ArrayList<MonitorSpeedLimit> getSpeedLimits() {
         ArrayList<MonitorSpeedLimit> monitorSpeedLimits = new ArrayList<MonitorSpeedLimit>();
 
         boolean trainReached = false;
@@ -80,6 +80,10 @@ public class TrackMonitor {
         }
 
         return monitorSpeedLimits;
+    }
+
+    public double getCurrentSpeedLimit() {
+        return Double.valueOf(this.rows.get(2).getTrackCol().split(" ")[0]);
     }
     
 }

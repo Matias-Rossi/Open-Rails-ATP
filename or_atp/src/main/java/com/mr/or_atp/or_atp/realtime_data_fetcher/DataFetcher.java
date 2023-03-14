@@ -62,7 +62,7 @@ public class DataFetcher {
         //     System.out.println("Signal: " + signal.getAspect() + " // Distance: " + signal.getDistance());
         // });
         
-        trackMonitor.getSpeedLimitPosts().forEach(speedLimitPost -> {
+        trackMonitor.getSpeedLimits().forEach(speedLimitPost -> {
             System.out.println("SpeedLimitPost: " + speedLimitPost.getSpeedLimit() + " // Distance: " + speedLimitPost.getDistance());
         });
 

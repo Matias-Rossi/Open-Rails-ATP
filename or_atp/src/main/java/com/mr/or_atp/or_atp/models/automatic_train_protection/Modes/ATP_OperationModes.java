@@ -7,8 +7,8 @@ public enum ATP_OperationModes {
     ISOLATED_TOTAL,
         //Similar to ISOLATED_LIMITED, but will not limit traction. Accesible through switch outside of cab.
         //To access it a special key is needed.
-    DRIVING_LIMITED, //Ignores all signals, but speed is limited to 10km/h
-    DRIVING_MANUAL_CONTROLLED //Normal driving mode
+    LIMITED_OPERATION, //Ignores all signals, but speed is limited to 10km/h
+    MANUAL_CONTROLLED_OPERATION //Normal driving mode
     //Last 2 are toggled using a switch inside the cab.
     
 }
