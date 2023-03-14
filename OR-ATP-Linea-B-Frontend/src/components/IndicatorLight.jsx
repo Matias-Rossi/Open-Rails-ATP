@@ -17,7 +17,7 @@ function IndicatorLight({styles = "", text = "", status = false, color = "", id=
 IndicatorLight.propTypes = {
   color: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  status: PropTypes.string
+  status: PropTypes.bool
 }
 
 export default IndicatorLight

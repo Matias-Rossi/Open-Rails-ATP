@@ -10,11 +10,11 @@ function Atp() {
   const vObj = 60.0;
   const vAll = 60.0;
 
-  const cl_status = "off";
-  const cm_status = "on";
-  const tr_status = "on";
-  const fr_status = "off";
-  const pe_status = "off";
+  const cl_status = false;
+  const cm_status = true;
+  const tr_status = true;
+  const fr_status = false;
+  const pe_status = false;
   
   return (
     <div className='base'>
