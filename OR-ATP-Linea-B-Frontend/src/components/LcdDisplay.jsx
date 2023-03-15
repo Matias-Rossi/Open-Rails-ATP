@@ -8,7 +8,7 @@ function LcdDisplay({value, status, id}) {
 
   return (
     <div className='lcd-display' id={id}>
-        <p>{value}</p>
+        <p>{status ? value : ""}</p>
     </div>
   )
 }
@@ -17,7 +17,7 @@ function LcdDisplay({value, status, id}) {
 LcdDisplay.propTypes = {
     value: PropTypes.number.isRequired,
     id: PropTypes.string.isRequired,
-    status: PropTypes.string
+    status: PropTypes.bool
 }
   
 

@@ -21,7 +21,7 @@ function SpeedBar({value, id, status}) {
 
 SpeedBar.propTypes = {
     value: PropTypes.number.isRequired,
-    status: PropTypes.string.isRequired,
+    status: PropTypes.bool.isRequired,
     id: PropTypes.string.isRequired,
 }
 

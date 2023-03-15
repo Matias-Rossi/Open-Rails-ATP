@@ -2,6 +2,7 @@ package com.mr.or_atp.or_atp.controllers;
 
 import java.util.ArrayList;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,6 +13,8 @@ import com.mr.or_atp.or_atp.models.automatic_train_protection.panel_json.SpeedJS
 
 @RestController
 public class ATPController {
+
+    @CrossOrigin
     @GetMapping("/atp")
     public String getATPPanel() {
         ATP_Panel panel = ATP_core.getPanel();
